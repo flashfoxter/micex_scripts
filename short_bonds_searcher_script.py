@@ -40,6 +40,7 @@ def calc_yield(bond_list):
         r = (bond_yield/p)*(365/t)*100  # Годовая доходность
         bond.append(round(bond_yield, 2))
         bond.append(round(r, 2))
+        bond.append(t)
 
 
 def print_bond_list(bond_list):
@@ -47,12 +48,12 @@ def print_bond_list(bond_list):
     Печать списка облигаций
     :param bond_list: список облигаций
     """
-    print("=" * 165)
-    print("|%15s|%35s|%15s|%15s|%15s|%15s|%15s|%15s|%15s|" % ("ISIN", "Наименование", "Номинал", "Величина купона", "НКД", "Дата погашения", "Цена закрытия", "Доход", "Доход в %"))
-    print("=" * 165)
+    print("=" * 186)
+    print("|%15s|%35s|%15s|%15s|%15s|%15s|%20s|%15s|%15s|%15s|" % ("ISIN", "Наименование", "Номинал", "Величина купона", "НКД", "Дата погашения", "Дней до погашения", "Цена закрытия", "Доход", "Доход в %"))
+    print("=" * 186)
     for bond in bond_list:
-        print("|%15s|%35s|%15s|%15s|%15s|%15s|%15s|%15s|%15s|" % (bond[0], bond[20], bond[10], bond[5], bond[7], bond[13], bond[17], bond[36], bond[37]))
-    print("=" * 165)
+        print("|%15s|%35s|%15s|%15s|%15s|%15s|%20s|%15s|%15s|%15s|" % (bond[0], bond[20], bond[10], bond[5], bond[7], bond[13], bond[38], bond[17], bond[36], bond[37]))
+    print("=" * 186)
 
 
 def main():
