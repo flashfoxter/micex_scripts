@@ -36,7 +36,7 @@ def calc_yield(bond_list):
         p = float((bond[10]/100)*bond[17] if bond[17] else bond[10]) + float(bond[7])  # Цена покупки + НКД
         mat_date = datetime.datetime.strptime(bond[13], "%Y-%m-%d")  # Дата погашения
         t = (mat_date.date() - datetime.datetime.now().date()).days  # Количество дней владения облигацией
-        bond_yield = (h + c - p) * (1 - tax)  # Доход
+        bond_yield = (h + c - p) - c * tax  # Доход
         r = (bond_yield/p)*(365/t)*100  # Годовая доходность
         bond.append(round(bond_yield, 2))
         bond.append(round(r, 2))
@@ -52,7 +52,7 @@ def print_bond_list(bond_list):
     print("|%15s|%35s|%15s|%15s|%15s|%15s|%20s|%15s|%15s|%15s|" % ("ISIN", "Наименование", "Номинал", "Величина купона", "НКД", "Дата погашения", "Дней до погашения", "Цена закрытия", "Доход", "Доход в %"))
     print("=" * 186)
     for bond in bond_list:
-        print("|%15s|%35s|%15s|%15s|%15s|%15s|%20s|%15s|%15s|%15s|" % (bond[0], bond[20], bond[10], bond[5], bond[7], bond[13], bond[38], bond[17], bond[36], bond[37]))
+        print("|%15s|%35s|%15s|%15s|%15s|%15s|%20s|%15s|%15s|%15s|" % (bond[0], bond[20], bond[10], bond[5], bond[7], bond[13], bond[39], bond[17], bond[37], bond[38]))
     print("=" * 186)
 
 
